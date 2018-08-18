@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
 class App extends Component {
 
+  state = {
+    venues: []
+  }
+
   componentDidMount() {
+    this.getVenues()
     this.renderMap()
   }
 
@@ -19,9 +25,32 @@ class App extends Component {
     window.initMap = this.initMap
   }
 
+  getVenues = () => {
+    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
+    const parameters = {
+      client_id: "4ATSMFQDONZ5VLDPFPH4YR1ODXDHGL2VFZZZRE1T2BQEYDPL",
+      client_secret: "AVPVOVT4SAAXDDZNGRVI0LZUPBFZ1DASYISP1ONNLB5JBF50",
+      query: "food",
+      ll: "40.6224858434,22.9423862304",
+      v: "20181808"
+    }
+
+    // This is like FETCH API - Axios does the same thing
+    axios.get(endPoint + new URLSearchParams(parameters))
+    .then(response => {
+      this.setState({
+        venues: response.data.response.groups[0].items
+      })
+      // console.log(response.data.response.groups[0].items)
+    })
+    .catch(error => {
+      console.log("ERROR!! " + error)
+    })
+  }
+
   initMap = () => {
       var map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
+      center: {lat: 40.6224858434, lng: 22.9423862304},
       zoom: 8
     });
   }
