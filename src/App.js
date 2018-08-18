@@ -11,7 +11,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
-    this.renderMap()
+    // this.renderMap()
   }
 
   /* 
@@ -35,12 +35,19 @@ class App extends Component {
       v: "20181808"
     }
 
-    // This is like FETCH API - Axios does the same thing
+    /* This is like FETCH API - Axios does the same
+    * Reference: https://github.com/axios/axios
+    * We put this.renderMap() here instead of inside componentDidMount(), 
+    * because the call is asynchronous and when put inside componentDidMount(),
+    * the venues array is still empty and the map method to show the markers on map
+    * cannot work. The renderMap() MUST be called after getting the response, 
+    * NOT before => This is CRUCIAL. 
+    */ 
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
       this.setState({
         venues: response.data.response.groups[0].items
-      })
+      }, this.renderMap())
       // console.log(response.data.response.groups[0].items)
     })
     .catch(error => {
@@ -49,10 +56,20 @@ class App extends Component {
   }
 
   initMap = () => {
-      var map = new window.google.maps.Map(document.getElementById('map'), {
+    var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.6224858434, lng: 22.9423862304},
-      zoom: 8
-    });
+      zoom: 12
+    })
+
+    this.state.venues.map(myVenue => {
+
+      // Reference: https://developers.google.com/maps/documentation/javascript/markers
+      var marker = new window.google.maps.Marker({
+        position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
+        map: map,
+        title: myVenue.venue.name
+      })
+    })
   }
 
   render() {
