@@ -30,9 +30,10 @@ class App extends Component {
     const parameters = {
       client_id: "4ATSMFQDONZ5VLDPFPH4YR1ODXDHGL2VFZZZRE1T2BQEYDPL",
       client_secret: "AVPVOVT4SAAXDDZNGRVI0LZUPBFZ1DASYISP1ONNLB5JBF50",
-      query: "food",
+      query: "sights",
       ll: "40.6224858434,22.9423862304",
-      v: "20181808"
+      v: "20181808",
+      limit: 15
     }
 
     /* This is like FETCH API - Axios does the same
@@ -56,19 +57,39 @@ class App extends Component {
   }
 
   initMap = () => {
+
+    // Create the map
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.6224858434, lng: 22.9423862304},
-      zoom: 12
+      zoom: 15
     })
+
+    // Create an InfoWindow
+    var infowindow = new window.google.maps.InfoWindow()
 
     this.state.venues.map(myVenue => {
 
+      var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
+    
+      // Reference: https://developers.google.com/maps/documentation/javascript/infowindows
+      // Content of the InfoWindow 
+
+      // Create a marker
       // Reference: https://developers.google.com/maps/documentation/javascript/markers
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
         map: map,
         title: myVenue.venue.name
       })
+
+      // Click on a marker
+      marker.addListener('click', function() {
+      // Content of the InfoWindow
+      infowindow.setContent(contentString)
+
+      // Open an InfoWindow
+        infowindow.open(map, marker)
+      });
     })
   }
 
