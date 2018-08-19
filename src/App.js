@@ -11,7 +11,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
-    // this.renderMap()
   }
 
   /* 
@@ -56,6 +55,7 @@ class App extends Component {
     })
   }
 
+
   initMap = () => {
 
     // Create the map
@@ -67,6 +67,7 @@ class App extends Component {
     // Create an InfoWindow
     var infowindow = new window.google.maps.InfoWindow()
 
+    
     this.state.venues.map(myVenue => {
 
       var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
@@ -79,17 +80,31 @@ class App extends Component {
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
         map: map,
+        animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
       })
 
+      // Make a marker bounce. The function is called when the marker is clecked.
+      // I was trying to use setTimeout on the bounce animation, but for reason that
+      // I can't explain, it didn't work.
+      // The idea to make the animation null AFTER the bouncing came from:
+      // https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+      function animationEffect() {
+        marker.setAnimation(window.google.maps.Animation.BOUNCE)
+        setTimeout(function(){ marker.setAnimation(null) }, 750)
+      }
+
       // Click on a marker
       marker.addListener('click', function() {
+        
       // Content of the InfoWindow
-      infowindow.setContent(contentString)
+        infowindow.setContent(contentString)
+        animationEffect()
+        
 
       // Open an InfoWindow
         infowindow.open(map, marker)
-      });
+      })
     })
   }
 
