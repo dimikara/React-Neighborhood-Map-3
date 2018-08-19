@@ -48,7 +48,6 @@ class App extends Component {
       this.setState({
         venues: response.data.response.groups[0].items
       }, this.renderMap())
-      // console.log(response.data.response.groups[0].items)
     })
     .catch(error => {
       console.log("ERROR!! " + error)
@@ -64,8 +63,10 @@ class App extends Component {
       zoom: 15
     })
 
-    // Create an InfoWindow
-    var infowindow = new window.google.maps.InfoWindow()
+    // Create an InfoWindow with max width 120px
+    var infowindow = new window.google.maps.InfoWindow({ 
+      maxWidth: 120 
+    })
 
     
     this.state.venues.map(myVenue => {
@@ -89,19 +90,20 @@ class App extends Component {
       // I can't explain, it didn't work.
       // The idea to make the animation null AFTER the bouncing came from:
       // https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+      
       function animationEffect() {
         marker.setAnimation(window.google.maps.Animation.BOUNCE)
-        setTimeout(function(){ marker.setAnimation(null) }, 750)
+        setTimeout(function(){ marker.setAnimation(null) }, 550)
       }
+
 
       // Click on a marker
       marker.addListener('click', function() {
-        
+           
       // Content of the InfoWindow
         infowindow.setContent(contentString)
         animationEffect()
         
-
       // Open an InfoWindow
         infowindow.open(map, marker)
       })
