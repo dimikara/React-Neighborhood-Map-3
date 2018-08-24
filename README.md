@@ -95,6 +95,7 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 * The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more information on how to perform common tasks, visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 * [Udacity | Neighborhood Map - Project Explained](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1) by Yahya Elharony.
 * This Stackoverflow question helped me in making the markers bounce only once when clicked: https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once.
+* [Creating a Sliding Menu in React](https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm) by kirupa.
 * Favicon generated via [Favicon & App Icon Generator](https://www.favicon-generator.org/).
 
 

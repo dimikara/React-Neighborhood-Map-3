@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import axios from 'axios'
+import MenuContainer from './MenuContainer';
+import axios from 'axios';
 
 class App extends Component {
 
@@ -37,14 +38,14 @@ class App extends Component {
       query: "sights",
       ll: "40.6224858434,22.9423862304",
       v: "20181808",
-      limit: 15
+      limit: 10
     }
 
     /* 
     * This is like FETCH API - axios does the same thing
     * Reference: https://github.com/axios/axios
     * I put this.renderMap() here instead of inside componentDidMount(), 
-    * because the call is asynchronous and if put inside componentDidMount(),
+    * because the call is asynchronous and if I put it inside componentDidMount(),
     * the venues array is empty until the response is fetched and the map method 
     * to show the markers on map cannot work. The renderMap() MUST be called 
     * AFTER getting the response, NOT before => This is CRUCIAL. 
@@ -66,11 +67,11 @@ class App extends Component {
     /* 
     * Create the map.
     * Center coordinates point to my city, Thessaloniki - Greece.
-    * Zoom level set to 15.
+    * Zoom level set to 14.
     */
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.6224858434, lng: 22.9423862304},
-      zoom: 15
+      zoom: 14
     })
 
     // Create an InfoWindow with max width 120px
@@ -129,8 +130,18 @@ class App extends Component {
   render() {
     return (
       <main>
+        <div id="container">
+          <div>
+            <MenuContainer />
+          </div>
+          <div className="appTitle">
+            <h1>Interesting Thessaloniki Sights</h1>
+          </div>
+        </div>       
+      
         <div id="map">
         </div>
+
       </main>
     );
   }

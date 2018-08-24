@@ -1,0 +1,44 @@
+#sightsMenu {
+    width: 25vw;
+    height: 100vh;
+    background-color: rgb(247, 245, 158);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform .3s
+                cubic-bezier(0, .52, 0, 1);
+    overflow: scroll;
+    z-index: 1000;
+  }
+   
+  #sightsMenu.hide {
+    transform: translate3d(-100vw, 0, 0);
+  }
+   
+  #sightsMenu.show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+  }
+   
+  #sightsMenu h2 a {
+    color: #333;
+    margin-left: 15px;
+    text-decoration: none;
+  }
+   
+  #sightsMenu h2 a:hover {
+    text-decoration: underline;
+  }
+
+
+.generalText {
+    width: 30vw;
+    height: 10vh;
+}
+
+
+.menuButtonLine {
+    width: 30vw;
+    height: 10vh;
+    color: rgb(247, 245, 158);
+}
