@@ -19,7 +19,13 @@
     transform: translate3d(0vw, 0, 0);
     overflow: hidden;
   }
-   
+
+  #sightsMenu h2 {
+    color: #333;
+    margin-left: 15px;
+    text-decoration: none;
+  }
+
   #sightsMenu h2 a {
     color: #333;
     margin-left: 15px;

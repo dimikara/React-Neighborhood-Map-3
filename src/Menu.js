@@ -13,10 +13,10 @@ class Menu extends Component {
       <div id="sightsMenu"
            onMouseDown={this.props.handleMouseDown} 
            className={visibility}>
-        <h2><a href="#">Home</a></h2>
-        <h2><a href="#">About</a></h2>
-        <h2><a href="#">Contact</a></h2>
-        <h2><a href="#">Search</a></h2>
+        <h2>Sight 1</h2>
+        <h2>Sight 2</h2>
+        <h2>Sight 3</h2>
+        <h2>Sight 4</h2>
       </div>
     );
   }
