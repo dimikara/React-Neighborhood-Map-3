@@ -86,7 +86,7 @@ You can refer [to the React documentation](https://reactjs.org/docs/react-dom.ht
 ## APIs used
 
 * Google Maps API for the map.
-* FourSquare API for the info fetched upon clicking a sight marker.<br>
+* Places API by FourSquare, for the info fetched upon clicking a sight marker.<br>
 I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/api/venues/explore), which returns a list of recommended venues near the current location.
 
 

@@ -28,6 +28,7 @@ class App extends Component {
   * endPoint & parameters set following the guidelines in this page:
   * https://developer.foursquare.com/docs/api/venues/explore
   */
+
   getVenues = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?"
     const parameters = {
@@ -42,7 +43,7 @@ class App extends Component {
     /* 
     * This is like FETCH API - axios does the same thing
     * Reference: https://github.com/axios/axios
-    * We put this.renderMap() here instead of inside componentDidMount(), 
+    * I put this.renderMap() here instead of inside componentDidMount(), 
     * because the call is asynchronous and if put inside componentDidMount(),
     * the venues array is empty until the response is fetched and the map method 
     * to show the markers on map cannot work. The renderMap() MUST be called 
