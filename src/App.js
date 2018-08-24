@@ -14,9 +14,9 @@ class App extends Component {
   }
 
   /* 
-    renderMap does two things: 
-    - load the script
-    - initialize the map
+  * renderMap does two things: 
+  * - loads the script
+  * - initializes the map
   */
 
   renderMap = () => {
@@ -35,13 +35,14 @@ class App extends Component {
       limit: 15
     }
 
-    /* This is like FETCH API - Axios does the same
+    /* 
+    * This is like FETCH API - Axios does the same
     * Reference: https://github.com/axios/axios
     * We put this.renderMap() here instead of inside componentDidMount(), 
-    * because the call is asynchronous and when put inside componentDidMount(),
-    * the venues array is still empty and the map method to show the markers on map
-    * cannot work. The renderMap() MUST be called after getting the response, 
-    * NOT before => This is CRUCIAL. 
+    * because the call is asynchronous and if put inside componentDidMount(),
+    * the venues array is empty until the response is fetched and the map method 
+    * to show the markers on map cannot work. The renderMap() MUST be called 
+    * AFTER getting the response, NOT before => This is CRUCIAL. 
     */ 
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
@@ -73,11 +74,15 @@ class App extends Component {
 
       var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
     
-      // Reference: https://developers.google.com/maps/documentation/javascript/infowindows
-      // Content of the InfoWindow 
+      /* 
+      * Reference: https://developers.google.com/maps/documentation/javascript/infowindows
+      * Content of the InfoWindow 
+      */
 
-      // Create a marker
-      // Reference: https://developers.google.com/maps/documentation/javascript/markers
+      /* 
+      * Create a marker
+      * Reference: https://developers.google.com/maps/documentation/javascript/markers
+      */
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
         map: map,
@@ -85,12 +90,13 @@ class App extends Component {
         title: myVenue.venue.name
       })
 
-      // Make a marker bounce. The function is called when the marker is clecked.
-      // I was trying to use setTimeout on the bounce animation, but for reason that
-      // I can't explain, it didn't work.
-      // The idea to make the animation null AFTER the bouncing came from:
-      // https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
-      
+      /* Make a marker bounce. The function is called when the marker is clecked.
+      * I was trying to use setTimeout on the bounce animation, but for a reason that
+      * I can't explain, it didn't work.
+      * The idea to make the animation null AFTER the bouncing came from:
+      * https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+      */
+
       function animationEffect() {
         marker.setAnimation(window.google.maps.Animation.BOUNCE)
         setTimeout(function(){ marker.setAnimation(null) }, 550)
@@ -121,15 +127,15 @@ class App extends Component {
 }
 
 /*
- Function loadScript gets the url.
- var index => Gives the first selected script tag.
- With the var "script" we create our next script tag.
- index.parentNode.insertBefore(script, index) : Instead of appendChild.
- [script: newNode
- index: referenceNode]
- With "index" we select the first script tag, with "parentNode" we select the parent node,
- with "insertBefore" we put our script at the very beginning, we put our script to the
- top of the lists.
+* Function loadScript gets the url.
+* var index => Gives the first selected script tag.
+* With the var "script" we create our next script tag.
+* index.parentNode.insertBefore(script, index) : Instead of appendChild.
+* [script: newNode
+* index: referenceNode]
+* With "index" we select the first script tag, with "parentNode" 
+* we select the parent node, with "insertBefore" we put our script
+* at the very beginning, to the top of the lists.
 */
 
 function loadScript(url) {
