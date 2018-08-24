@@ -24,6 +24,10 @@ class App extends Component {
     window.initMap = this.initMap
   }
 
+  /*
+  * endPoint & parameters set following the guidelines in this page:
+  * https://developer.foursquare.com/docs/api/venues/explore
+  */
   getVenues = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?"
     const parameters = {
@@ -36,7 +40,7 @@ class App extends Component {
     }
 
     /* 
-    * This is like FETCH API - Axios does the same
+    * This is like FETCH API - axios does the same thing
     * Reference: https://github.com/axios/axios
     * We put this.renderMap() here instead of inside componentDidMount(), 
     * because the call is asynchronous and if put inside componentDidMount(),
@@ -58,7 +62,11 @@ class App extends Component {
 
   initMap = () => {
 
-    // Create the map
+    /* 
+    * Create the map.
+    * Center coordinates point to my city, Thessaloniki - Greece.
+    * Zoom level set to 15.
+    */
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.6224858434, lng: 22.9423862304},
       zoom: 15
@@ -90,7 +98,8 @@ class App extends Component {
         title: myVenue.venue.name
       })
 
-      /* Make a marker bounce. The function is called when the marker is clecked.
+      /* 
+      * Make a marker bounce. The function is called when the marker is clecked.
       * I was trying to use setTimeout on the bounce animation, but for a reason that
       * I can't explain, it didn't work.
       * The idea to make the animation null AFTER the bouncing came from:
@@ -106,11 +115,11 @@ class App extends Component {
       // Click on a marker
       marker.addListener('click', function() {
            
-      // Content of the InfoWindow
+      // Setting the content of the InfoWindow
         infowindow.setContent(contentString)
         animationEffect()
         
-      // Open an InfoWindow
+      // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
       })
     })
