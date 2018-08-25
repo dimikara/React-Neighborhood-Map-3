@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import './MenuComponent.css';
-//import VenuesList from './VenuesList';
+// import VenuesList from './VenuesList';
 
 
 class MenuComponent extends Component {
@@ -16,10 +16,13 @@ class MenuComponent extends Component {
   render () {
     return (
       <Menu width={ '30%' } >
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <div>
+          <ul role="navigation">
+            <li>Sight 1</li>
+            <li>Sight 2</li>
+            <li>Sight 3</li>
+          </ul>
+        </div>
       </Menu>
     );
   }

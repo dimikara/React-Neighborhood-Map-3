@@ -38,7 +38,7 @@ class App extends Component {
       query: "sights",
       ll: "40.6224858434,22.9423862304",
       v: "20181808",
-      limit: 15
+      limit: 8
     }
 
     /* 
