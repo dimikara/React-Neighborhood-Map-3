@@ -78,7 +78,7 @@ class App extends Component {
       maxWidth: 120 
     })
 
-    
+    // eslint-disable-next-line
     this.state.venues.map(myVenue => {
 
       var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
