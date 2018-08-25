@@ -66,11 +66,11 @@ class App extends Component {
     /* 
     * Create the map.
     * Center coordinates point to my city, Thessaloniki - Greece.
-    * Zoom level set to 15.
+    * Zoom level set to 14.
     */
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.6224858434, lng: 22.9423862304},
-      zoom: 15
+      zoom: 14
     })
 
     // Create an InfoWindow with max width 120px
@@ -78,7 +78,7 @@ class App extends Component {
       maxWidth: 120 
     })
 
-    
+    // eslint-disable-next-line
     this.state.venues.map(myVenue => {
 
       var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
@@ -100,7 +100,7 @@ class App extends Component {
       })
 
       /* 
-      * Make a marker bounce. The function is called when the marker is clecked.
+      * Make a marker bounce. The function is called when the marker is clicked.
       * I was trying to use setTimeout on the bounce animation, but for a reason that
       * I can't explain, it didn't work.
       * The idea to make the animation null AFTER the bouncing came from:
