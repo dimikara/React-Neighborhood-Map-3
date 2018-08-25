@@ -1,10 +1,11 @@
 #sightsMenu {
-    width: 25vw;
+    width: 25%;
     height: 100vh;
     background-color: rgb(247, 245, 158);
     position: fixed;
     top: 0;
     left: 0;
+    margin: 5px;
     transition: transform .3s
                 cubic-bezier(0, .52, 0, 1);
     overflow: scroll;

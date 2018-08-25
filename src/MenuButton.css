@@ -1,8 +1,9 @@
 #squareButton {
     background-color: rgb(247, 245, 158);
     width: 20vw;
-    height: 12vh;
+    height: 100%;
     border: 4px solid #003557;
+    padding: 2px;
     outline: none;
     transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
   }
@@ -11,7 +12,7 @@
     background-color: rgb(247, 245, 158);
     cursor: pointer;
     border-color: #003557;
-    transform: scale(1.2, 1.2);
+    /*transform: scale(1.2, 1.2);*/
   }
    
   #squareButton:active {

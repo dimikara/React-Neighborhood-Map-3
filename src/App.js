@@ -132,7 +132,10 @@ class App extends Component {
       <main>
         <div id="container">
           <div>
-            <MenuContainer />
+            <MenuContainer 
+              getVenues={this.state.getVenues}
+              marker={this.state.marker}
+            />
           </div>
           <div className="appTitle">
             <h1>Interesting Thessaloniki Sights</h1>
