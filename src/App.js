@@ -6,7 +6,8 @@ import MenuComponent from './MenuComponent';
 class App extends Component {
 
   state = {
-    venues: []
+    venues: [],
+    mySights: []
   }
 
   componentDidMount() {
@@ -52,7 +53,8 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
       this.setState({
-        venues: response.data.response.groups[0].items
+        venues: response.data.response.groups[0].items,
+        mySights: response.data.response.groups[0].items
       }, this.renderMap())
     })
     .catch(error => {
@@ -81,13 +83,12 @@ class App extends Component {
     // eslint-disable-next-line
     this.state.venues.map(myVenue => {
 
-      var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
-    
       /* 
       * Reference: https://developers.google.com/maps/documentation/javascript/infowindows
       * Content of the InfoWindow 
       */
-
+      var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
+    
       /* 
       * Create a marker
       * Reference: https://developers.google.com/maps/documentation/javascript/markers
@@ -123,7 +124,9 @@ class App extends Component {
       // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
       })
-    })
+    }
+    
+  )
   }
 
   render() {
@@ -131,9 +134,11 @@ class App extends Component {
       <main>
         
         <div id="container">
-          <MenuComponent />
+          <MenuComponent 
+          mySights={this.state.venues}
+          marker={this.state.marker}
+          />
         </div>   
-
         <div id="map">
         </div>
 
