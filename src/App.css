@@ -35,3 +35,13 @@
     margin: 0;
     padding: 0;
 }
+
+#container {
+  display: flex;
+  background-color: rgb(247, 245, 158);
+}
+
+.appTitle {
+  height: 15vh;
+  text-align: center;
+}
