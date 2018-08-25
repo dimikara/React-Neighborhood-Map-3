@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getVenues()
+    this.getVenues();
   }
 
   /* 
@@ -79,7 +79,7 @@ class App extends Component {
       maxWidth: 120 
     })
 
-    
+    // eslint-disable-next-line
     this.state.venues.map(myVenue => {
 
       var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
@@ -133,12 +133,12 @@ class App extends Component {
         <div id="container">
           <div>
             <MenuContainer 
-              getVenues={this.state.getVenues}
+              getVenues={this.state.venues}
               marker={this.state.marker}
             />
           </div>
-          <div className="appTitle">
-            <h1>Interesting Thessaloniki Sights</h1>
+          <div tabIndex="0" className="appTitle">
+            <h1>Interesting Sights in Thessaloniki</h1>
           </div>
         </div>       
       
