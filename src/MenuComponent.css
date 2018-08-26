@@ -31,6 +31,7 @@
 /* General sidebar styles */
 .bm-menu {
   background: rgb(241, 241, 241);
+  /*padding: 2.5em 1.5em 0;*/
   font-size: 1.1em;
 }
 
@@ -46,21 +47,11 @@
   .bm-item-list {
     padding: 0;
   }
-<<<<<<< HEAD
-
   .bm-menu {
     margin-top: 10px;
     font-size: 0.8em;
     width: 100%;
   }
-||||||| merged common ancestors
-=======
-  .bm-menu {
-    margin-top: 10px;
-    font-size: 0.8em;
-    width: 100%;
-  }
->>>>>>> 1e380f1e7582b0280c660f1396a8402345f1032b
 }
 
 
