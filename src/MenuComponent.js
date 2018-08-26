@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import './MenuComponent.css';
-// import VenuesList from './VenuesList';
+import VenuesList from './VenuesList';
 
 
 class MenuComponent extends Component {
@@ -10,17 +10,15 @@ class MenuComponent extends Component {
     }
 
   state ={
-    mySights: this.props.venues
+    mySights: []
   }
 
   render () {
     return (
       <Menu width={ '30%' } >
         <div>
-          <ul role="navigation">
-            <li>Sight 1</li>
-            <li>Sight 2</li>
-            <li>Sight 3</li>
+          <ul className="mySights-list" role="navigation">
+            <VenuesList />
           </ul>
         </div>
       </Menu>
