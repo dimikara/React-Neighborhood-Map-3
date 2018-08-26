@@ -45,3 +45,19 @@
   height: 15vh;
   text-align: center;
 }
+
+#page-top {
+  display: inline;
+}
+
+#header {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 348px) {
+  #header {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 import MenuComponent from './MenuComponent';
+import Header from './Header';
 
 class App extends Component {
 
@@ -38,7 +39,7 @@ class App extends Component {
       query: "sights",
       ll: "40.6224858434,22.9423862304",
       v: "20181808",
-      limit: 8
+      limit: 6
     }
 
     /* 
@@ -132,13 +133,17 @@ class App extends Component {
   render() {
     return (
       <main>
-        
+        <div id="header">
+          <Header />
+        </div>
+
         <div id="container">
           <MenuComponent 
           mySights={this.state.venues}
           marker={this.state.marker}
           />
-        </div>   
+        </div>
+
         <div id="map">
         </div>
 
