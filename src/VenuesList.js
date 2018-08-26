@@ -12,13 +12,16 @@ class VenuesList extends Component {
         ];
     
         return (
-          <ol aria-label="Sights">
-            {mySights.map(mySight => (
-                <li id={mySight.id} key={mySight.id}>
+          <div id="Venues" aria-label="Venues-List">
+            <ol aria-label="Sights">
+              {mySights.map(mySight => (
+                <li tabIndex="0" id={mySight.id} key={mySight.id}>
                     <b>{mySight.name}</b><br></br> <i>{mySight.address}</i>
                 </li>
-            ))}
-          </ol>
+              ))}
+            </ol>
+            <p>Data provided by Foursquare (Places API)</p>
+          </div>
         );
       }
 }

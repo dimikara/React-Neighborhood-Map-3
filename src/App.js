@@ -59,7 +59,7 @@ class App extends Component {
       }, this.renderMap())
     })
     .catch(error => {
-      alert(`Sorry, an error occured: `+ {error})
+      alert(`Sorry, an error occured!`)
       console.log("ERROR!! " + error)
     })
   }
@@ -89,7 +89,8 @@ class App extends Component {
       * Reference: https://developers.google.com/maps/documentation/javascript/infowindows
       * Content of the InfoWindow 
       */
-      var contentString = `${myVenue.venue.name} - ${myVenue.venue.location.address}`
+      var contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i> 
+      <br><br>Data provided by Foursquare (Places API)`
     
       /* 
       * Create a marker
@@ -134,18 +135,18 @@ class App extends Component {
   render() {
     return (
       <main>
-        <div id="header">
+        <div id="header" aria-label="Header">
           <Header />
         </div>
 
-        <div id="container">
+        <div id="container" aria-label="Menu-Container">
           <MenuComponent 
           mySights={this.state.venues}
           marker={this.state.marker}
           />
         </div>
 
-        <div id="map">
+        <div id="map" aria-label="Map">
         </div>
 
       </main>
