@@ -4,7 +4,8 @@
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 36px;
+  top: 2vh;
+  margin-right: 5px;
 }
 
   
@@ -29,7 +30,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgb(247, 245, 158);
+  background: rgb(241, 241, 241);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
