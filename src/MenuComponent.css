@@ -47,6 +47,11 @@
   .bm-item-list {
     padding: 0;
   }
+  .bm-menu {
+    margin-top: 10px;
+    font-size: 0.8em;
+    width: 100%;
+  }
 }
 
 
