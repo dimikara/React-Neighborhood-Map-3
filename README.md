@@ -34,9 +34,12 @@ $ git clone https://github.com/dimikara/React-Neighborhood-Map-3.git
 ```
 
 In the repository folder: 
-* install all project dependencies with 
+* install project dependencies with 
 ```
-npm install
+npm install axios --save
+```
+```
+npm install react-burger-menu --save
 ```
 * start the development server with 
 ```
