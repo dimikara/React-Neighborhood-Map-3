@@ -113,4 +113,5 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 
 * Deploying the project live in GitHub Pages.
 * Implementing a better way to handle the list of sights.
-* Use more APIs for fetching info for a sight. For example, Wikipedia.
+* Use more APIs for fetching more info for the sights. For example, Wikipedia.
+* Make the list of sights more focused, for example getting only sights of archaeological interest.
