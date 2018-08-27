@@ -5,9 +5,6 @@ import VenuesList from './VenuesList';
 
 
 class MenuComponent extends Component {
-    showSettings (event) {
-        event.preventDefault();
-    }
 
   state ={
     mySights: []
