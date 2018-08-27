@@ -99,7 +99,10 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 * The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more information on how to perform common tasks, visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 * [Udacity | Neighborhood Map - Project Explained](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1) by Yahya Elharony.
 * This Stackoverflow question helped me in making the markers bounce only once when clicked: https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once.
-* [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) in React documentation.
+* For handling errors, I followed React documentation on [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) and `catch(error)`. I also used the `gm_authFailure` function according to [Google documentation](https://developers.google.com/maps/documentation/javascript/events). I put this function in a `<script>` tag in the botttom of `index.html` file. 
+* I found very useful the video series: 
+<br>- [React Beginner Series](https://www.youtube.com/playlist?list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m) by simonswiss &
+<br> - [React For Everyone](https://www.youtube.com/playlist?list=PLLnpHn493BHFfs3Uj5tvx17mXk4B4ws4p) by Level Up Tutorials.
 * Favicon generated via [Favicon & App Icon Generator](https://www.favicon-generator.org/).
 
 
@@ -115,5 +118,5 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 * Deploying the project live in GitHub Pages.
 * Improving the styling & general design to make the app more appealing.
 * Implementing a better way to handle the list of sights.
-* Use more APIs for fetching more info for the sights. For example, Wikipedia.
+* Use more APIs to fetch more info about the sights. For example, Wikipedia, or maybe photos by Flickr.
 * Make the list of sights more focused, for example, getting only sights of archaeological or other interest.

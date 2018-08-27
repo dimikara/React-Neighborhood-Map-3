@@ -7,14 +7,14 @@ import VenuesList from './VenuesList';
 class MenuComponent extends Component {
 
   state ={
-    mySights: []
+    myVenues: []
   }
 
   render () {
     return (
       <Menu width={ '30%' } >
         <div>
-          <ul className="mySights-list" role="navigation">
+          <ul className="myVenues-list" role="navigation">
             <VenuesList />
           </ul>
         </div>

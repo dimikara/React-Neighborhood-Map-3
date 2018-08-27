@@ -3,13 +3,14 @@ import './App.css';
 import axios from 'axios'
 import MenuComponent from './MenuComponent';
 import ErrorBoundary from './ErrorBoundary';
+import SearchBar from './SearchBar'
 import Header from './Header';
 
 class App extends Component {
 
   state = {
     venues: [],
-    mySights: []
+    myVenues: []
   }
 
   componentDidMount() {
@@ -23,8 +24,17 @@ class App extends Component {
   */
 
   renderMap = () => {
+    /* axios.get(loadScript("url"))
+    .then(response => {
+      console.log("OK??")
+    })
+    .catch(error => {
+      alert(`Sorry, an error occured!`)
+      console.log("ERROR!! " + error)
+    }) */
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
     window.initMap = this.initMap
+
   }
 
   /*
@@ -56,7 +66,7 @@ class App extends Component {
     .then(response => {
       this.setState({
         venues: response.data.response.groups[0].items,
-        mySights: response.data.response.groups[0].items
+        myVenues: response.data.response.groups[0].items
       }, this.renderMap())
     })
     .catch(error => {
@@ -91,7 +101,7 @@ class App extends Component {
       * Content of the InfoWindow 
       */
       var contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i> 
-      <br><br>Data provided by Foursquare (Places API)`
+      <br><br><i>Data provided by Foursquare (Places API)</i>.`
     
       /* 
       * Create a marker
@@ -127,7 +137,11 @@ class App extends Component {
         
       // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
-      })
+
+        this.setState((state) => ({
+          markers: [...state.markers, marker]
+        }))
+        })
     }
     
   )
@@ -137,19 +151,25 @@ class App extends Component {
     return (
       <main>
         <ErrorBoundary>
+        
         <div id="header" aria-label="Header">
           <Header />
         </div>
 
+        <div id="SearchBar" aria-label="Search Bar">
+          <SearchBar />
+        </div>
+        
         <div id="container" aria-label="Menu-Container">
           <MenuComponent 
-          mySights={this.state.venues}
-          marker={this.state.marker}
+          myVenues={this.props.venues}
+          marker={this.props.marker}
           />
         </div>
 
         <div id="map" aria-label="Map">
         </div>
+
         </ErrorBoundary>
       </main>
     );
