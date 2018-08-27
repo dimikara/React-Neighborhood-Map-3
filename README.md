@@ -99,6 +99,7 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 * The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more information on how to perform common tasks, visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 * [Udacity | Neighborhood Map - Project Explained](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1) by Yahya Elharony.
 * This Stackoverflow question helped me in making the markers bounce only once when clicked: https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once.
+* [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) in React documentation.
 * Favicon generated via [Favicon & App Icon Generator](https://www.favicon-generator.org/).
 
 
@@ -112,6 +113,7 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 ## Future Amendments
 
 * Deploying the project live in GitHub Pages.
+* Improving the styling & general design to make the app more appealing.
 * Implementing a better way to handle the list of sights.
 * Use more APIs for fetching more info for the sights. For example, Wikipedia.
-* Make the list of sights more focused, for example getting only sights of archaeological interest.
+* Make the list of sights more focused, for example, getting only sights of archaeological or other interest.

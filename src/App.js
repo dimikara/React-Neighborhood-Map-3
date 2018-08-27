@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 import MenuComponent from './MenuComponent';
+import ErrorBoundary from './ErrorBoundary';
 import Header from './Header';
 
 class App extends Component {
@@ -135,6 +136,7 @@ class App extends Component {
   render() {
     return (
       <main>
+        <ErrorBoundary>
         <div id="header" aria-label="Header">
           <Header />
         </div>
@@ -148,7 +150,7 @@ class App extends Component {
 
         <div id="map" aria-label="Map">
         </div>
-
+        </ErrorBoundary>
       </main>
     );
   }
