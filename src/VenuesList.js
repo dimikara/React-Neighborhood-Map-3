@@ -11,7 +11,7 @@ class VenuesList extends Component {
         ];
     
         return (
-          <div id="Venues" aria-label="Venues-List">
+          <div id="Venues" aria-label="Venues List">
             <ol id="Venues-List" aria-label="Sights">
               {mySights.map(mySight => (
                 <li tabIndex="0" id={mySight.id} key={mySight.id}>
