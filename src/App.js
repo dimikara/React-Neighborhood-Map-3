@@ -17,6 +17,11 @@ class App extends Component {
     this.getVenues()
   }
 
+  componentDidCatch() {
+    this.setState({ hasError: true })
+  }
+
+
   /* 
   * renderMap does two things: 
   * - loads the script
@@ -36,7 +41,8 @@ class App extends Component {
     * For reasons that I don't understand, I can't find a way to catch the error 
     * in case the url address is wrong.
     * I tried many ways, with .onerror, try/catch, axios but to no avail.
-    * Error Boundaries don't catch this error either as the message doesn't appear. 
+    * Error Boundaries don't catch this error either as the message doesn't appear.
+    * I also used ComponentDidCatch (below) but still no result.
     * */
     try {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
@@ -158,6 +164,9 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.hasError) {
+      return <div>Sorry, something went wrong!</div>
+    } else {
     return (
       <main>
         <ErrorBoundary>
@@ -183,6 +192,7 @@ class App extends Component {
         </ErrorBoundary>
       </main>
     );
+  }
   }
 }
 
