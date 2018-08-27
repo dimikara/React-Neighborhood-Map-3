@@ -32,8 +32,17 @@ class App extends Component {
       alert(`Sorry, an error occured!`)
       console.log("ERROR!! " + error)
     }) */
-    const mapUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap"
-    loadScript(mapUrl)
+    /*
+    * For reasons that I don't understand, I can't find a way to catch the error 
+    * in case the url address is wrong.
+    * I tried many ways, with .onerror, try/catch, axios but to no avail.
+    * Error Boundaries don't catch this error either as the message doesn't appear. 
+    * */
+    try {
+    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
+    } catch(error) {
+      alert(`Sorry, an error occured!!!`)
+    }
     window.initMap = this.initMap;
 
   }
