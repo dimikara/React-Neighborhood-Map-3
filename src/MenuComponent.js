@@ -12,7 +12,7 @@ class MenuComponent extends Component {
 
   render () {
     return (
-      <Menu width={ '30%' } >
+      <Menu width={ '30%' } isOpen noOverlay >
         <div>
           <ul className="myVenues-list" role="navigation">
             <VenuesList />

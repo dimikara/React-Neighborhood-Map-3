@@ -17,10 +17,6 @@ class App extends Component {
     this.getVenues()
   }
 
-  componentDidCatch() {
-    this.setState({ hasError: true })
-  }
-
 
   /* 
   * renderMap does two things: 
@@ -44,13 +40,12 @@ class App extends Component {
     * Error Boundaries don't catch this error either as the message doesn't appear.
     * I also used ComponentDidCatch (below) but still no result.
     * */
-    try {
+   try {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
     } catch(error) {
       alert(`Sorry, an error occured!!!`)
     }
     window.initMap = this.initMap;
-
   }
 
   /*
@@ -117,7 +112,7 @@ class App extends Component {
       * Content of the InfoWindow 
       */
       var contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i> 
-      <br><br><i>Data provided by Foursquare (Places API)</i>.`
+      <br><br><i>Data provided by Foursquare.</i>`
     
       /* 
       * Create a marker
@@ -154,9 +149,6 @@ class App extends Component {
       // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
 
-        this.setState((state) => ({
-          markers: [...state.markers, marker]
-        }))
         })
     }
     
