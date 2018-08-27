@@ -32,8 +32,9 @@ class App extends Component {
       alert(`Sorry, an error occured!`)
       console.log("ERROR!! " + error)
     }) */
-    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
-    window.initMap = this.initMap
+    const mapUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap"
+    loadScript(mapUrl)
+    window.initMap = this.initMap;
 
   }
 
