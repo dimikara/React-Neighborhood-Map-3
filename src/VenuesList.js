@@ -13,14 +13,12 @@ class VenuesList extends Component {
            
         return (
           <div id="Venues" aria-label="Venues">
-            <ol id="Venues-List" aria-label="Venues List">
               {myVenues.map(myVenue => (
-                <li tabIndex="0" id={myVenue.id} key={myVenue.id}>
+                <button tabIndex="0" id={myVenue.id} key={myVenue.id}>
                     <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
-                </li>
+                </button>
               ))}
-            </ol>
-            <p>Data fetched from Foursquare</p>
+            <p><i>Data fetched from Foursquare</i></p>
           </div>
         );
       }

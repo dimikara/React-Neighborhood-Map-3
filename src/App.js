@@ -6,11 +6,11 @@ import ErrorBoundary from './ErrorBoundary';
 import SearchBar from './SearchBar'
 import Header from './Header';
 
+
 class App extends Component {
 
   state = {
-    venues: [],
-    myVenues: []
+    venues: []
   }
 
   componentDidMount() {
@@ -57,8 +57,7 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
       this.setState({
-        venues: response.data.response.groups[0].items,
-        myVenues: response.data.response.groups[0].items
+        venues: response.data.response.groups[0].items
       }, this.renderMap())
     })
     .catch(error => {
@@ -92,20 +91,21 @@ class App extends Component {
       * Reference: https://developers.google.com/maps/documentation/javascript/infowindows
       * Content of the InfoWindow 
       */
-      var contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i> 
+      const contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i> 
       <br><br><i>Data provided by Foursquare.</i>`
     
       /* 
       * Create a marker
       * Reference: https://developers.google.com/maps/documentation/javascript/markers
       */
-      var marker = new window.google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
         map: map,
         animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
       })
-
+      
+      
       /* 
       * Make a marker bounce. The function is called when the marker is clicked.
       * I was trying to use setTimeout on the bounce animation, but for a reason that
@@ -119,7 +119,6 @@ class App extends Component {
         setTimeout(function(){ marker.setAnimation(null) }, 550)
       }
 
-
       // Click on a marker
       marker.addListener('click', function() {
            
@@ -132,7 +131,7 @@ class App extends Component {
 
         })
     }
-    
+
   )
   }
 
@@ -154,8 +153,7 @@ class App extends Component {
         
         <div id="container" aria-label="Menu-Container">
           <MenuComponent 
-          myVenues={this.props.venues}
-          marker={this.props.marker}
+          venues={ this.venues }
           />
         </div>
 
@@ -171,8 +169,8 @@ class App extends Component {
 
 /*
 * Function loadScript gets the url.
-* var index => Gives the first selected script tag.
-* With the var "script" we create our next script tag.
+* let index => Gives the first selected script tag.
+* With the let "script" we create our next script tag.
 * index.parentNode.insertBefore(script, index) : Instead of appendChild.
 * [script: newNode
 * index: referenceNode]
@@ -183,14 +181,14 @@ class App extends Component {
 
 
 function loadScript(url) {
-  var index  = window.document.getElementsByTagName("script")[0]
-  var script = window.document.createElement("script")
+  let index  = window.document.getElementsByTagName("script")[0]
+  let script = window.document.createElement("script")
   script.src = url
   script.async = true
   script.defer = true
   index.parentNode.insertBefore(script, index)
   script.onerror = function() {
-    alert("Error loading! Check the URL!");
+    alert("Error loading map! Check the URL!");
   };
 }
 
