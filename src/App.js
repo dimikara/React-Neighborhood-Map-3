@@ -10,7 +10,10 @@ import Header from './Header';
 class App extends Component {
 
   state = {
-    venues: []
+    venues: [],
+    marker: {},
+    markers: [],
+    //selectedMarker: false
   }
 
   componentDidMount() {
@@ -61,8 +64,8 @@ class App extends Component {
       }, this.renderMap())
     })
     .catch(error => {
-      alert(`Sorry, an error occured!`)
-      console.log("ERROR!! " + error)
+      alert(`Sorry, fetching data from Foursquare was not possible!`)
+      console.log("Foursquare error! " + error)
     })
   }
 
@@ -80,9 +83,11 @@ class App extends Component {
     })
 
     // Create an InfoWindow with max width 120px
-    var infowindow = new window.google.maps.InfoWindow({ 
-      maxWidth: 120 
+    const infowindow = new window.google.maps.InfoWindow({ 
+      maxWidth: 180
     })
+
+    this.infowindow = infowindow
 
     // eslint-disable-next-line
     this.state.venues.map(myVenue => {
@@ -105,6 +110,7 @@ class App extends Component {
         title: myVenue.venue.name
       })
       
+      // this.markers.push(marker)
       
       /* 
       * Make a marker bounce. The function is called when the marker is clicked.
@@ -119,27 +125,41 @@ class App extends Component {
         setTimeout(function(){ marker.setAnimation(null) }, 550)
       }
 
-      // Click on a marker
-      marker.addListener('click', function() {
-           
-      // Setting the content of the InfoWindow
+      function openMarker() {
+        // Setting the content of the InfoWindow
         infowindow.setContent(contentString)
         animationEffect()
         
       // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
+        //selectedMarker = true
+      }
 
+
+      // Click on a marker
+      marker.addListener('click', function() {
+        openMarker()
         })
-    }
 
+    }
   )
   }
+
+  /*
+  handleClick = () => {
+      document.querySelector('.bm-item-list').addEventListener('click', function (event) {
+        if (event.target && event.target.nodeName === "li") {
+          openMarker()
+        }
+      })
+    }
+  */
 
   render() {
     if (this.state.hasError) {
       return <div>Sorry, something went wrong!</div>
     } else {
-    return (
+      return (
       <main>
         <ErrorBoundary>
         
@@ -151,9 +171,14 @@ class App extends Component {
           <SearchBar />
         </div>
         
-        <div id="container" aria-label="Menu-Container">
+        <div id="container" aria-label="Menu Container">
           <MenuComponent 
           venues={ this.state.venues }
+          getVenues={this.getVenues}
+          //query={this.state.query}
+          //showingLocations={showingLocations}
+          //updateQuery={this.updateQuery}
+          markerClicked={this.onMarkerClick}
           />
         </div>
 

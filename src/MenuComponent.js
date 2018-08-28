@@ -15,15 +15,18 @@ class MenuComponent extends Component {
   render () {
     return (
       <Menu width={ '25%' } isOpen noOverlay >
-        <div id="Venues" aria-label="Venues">
+        <div>
               {myVenues.map(myVenue => (
-                  <li tabIndex="0" id={myVenue.id} key={myVenue.id}>
+                  <li aria-label={myVenue.name} tabIndex="0" id={myVenue.id} key={myVenue.id}>
                   <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
+                  <a onClick={() => this.props.handleClick.bind(this)}>
+                {myVenues.name}
+                  </a>
                   </li>
               ))}
             <p><i>Data fetched from Foursquare</i></p>
           </div>
-        </Menu>
+      </Menu>
     );
   }
 }

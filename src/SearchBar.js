@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 
 class SearchBar extends Component {
-    render() {
+    
+  render() {
       return (
-        <form>
+        <div className="locationsFilter" role="application">
           <input 
           type="text" 
           placeholder="Search..."
           aria-label="Locations filter"
           //value={this.props}
-          //onChange = { (e) => this.props.selectedMarker (this.props.marker, e.target.value)
-          //}
+          //onChange={ (e) => this.props.updateQuery(e.target.value)}
+          //onChange={ (e) => this.props.selectedMarker(this.props.marker, e.target.value)}
           />
-        </form>
+        </div>
       );
     }
 }
