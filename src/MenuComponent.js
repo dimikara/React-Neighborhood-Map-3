@@ -19,9 +19,7 @@ class MenuComponent extends Component {
               {myVenues.map(myVenue => (
                   <li aria-label={myVenue.name} tabIndex="0" id={myVenue.id} key={myVenue.id}>
                   <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
-                  <a onClick={() => this.props.handleClick.bind(this)}>
-                {myVenues.name}
-                  </a>
+                  window.google.maps.event.trigger(marker, 'click', openInfowindow)
                   </li>
               ))}
             <p><i>Data fetched from Foursquare</i></p>

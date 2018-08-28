@@ -32,6 +32,7 @@ class App extends Component {
     window.initMap = this.initMap;
   }
 
+  
   /*
   * endPoint & parameters set following the guidelines in this page:
   * https://developer.foursquare.com/docs/api/venues/explore
@@ -108,10 +109,12 @@ class App extends Component {
         map: map,
         animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
-      })
+        })
       
-      this.marker = marker
-      // this.markers.push(marker)
+        this.state.markers.push(marker)
+      
+      //this.marker = marker
+    
       
       /* 
       * Make a marker bounce. The function is called when the marker is clicked.
@@ -146,7 +149,7 @@ class App extends Component {
   )
   }
 
-  handleClick = () => {
+  markerClicked = () => {
       document.querySelector('.bm-item-list').addEventListener('click', function (event) {
         if (event.target.id === this.myVenue.id) {
           //openMarker()
@@ -174,6 +177,8 @@ class App extends Component {
           <MenuComponent 
           venues={ this.state.venues }
           getVenues={ this.getVenues }
+          onClick={() => this.markerClicked()}
+          markers={this.state.markers}
           //query={ this.state.query }
           //markerClicked={ this.onMarkerClick }
           />
