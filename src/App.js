@@ -25,26 +25,7 @@ class App extends Component {
   */
 
   renderMap = () => {
-    /* axios.get(loadScript("url"))
-    .then(response => {
-      console.log("OK??")
-    })
-    .catch(error => {
-      alert(`Sorry, an error occured!`)
-      console.log("ERROR!! " + error)
-    }) */
-    /*
-    * For reasons that I don't understand, I can't find a way to catch the error 
-    * in case the url address is wrong.
-    * I tried many ways, with .onerror, try/catch, axios but to no avail.
-    * Error Boundaries don't catch this error either as the message doesn't appear.
-    * I also used ComponentDidCatch (below) but still no result.
-    * */
-   try {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYi5z3xdE31FtV_NUvm7FOMmP2Cvvla3w&callback=initMap")
-    } catch(error) {
-      alert(`Sorry, an error occured!!!`)
-    }
     window.initMap = this.initMap;
   }
 
@@ -178,7 +159,7 @@ class App extends Component {
           />
         </div>
 
-        <div id="map" aria-label="Map">
+        <div id="map" aria-label="Map" role="application">
         </div>
 
         </ErrorBoundary>
@@ -200,6 +181,7 @@ class App extends Component {
 * at the very beginning, to the top of the lists.
 */
 
+
 function loadScript(url) {
   var index  = window.document.getElementsByTagName("script")[0]
   var script = window.document.createElement("script")
@@ -207,6 +189,10 @@ function loadScript(url) {
   script.async = true
   script.defer = true
   index.parentNode.insertBefore(script, index)
+  script.onerror = function() {
+    alert("Error loading! Check the URL!");
+  };
 }
+
 
 export default App;
