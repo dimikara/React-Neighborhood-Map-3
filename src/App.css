@@ -29,7 +29,6 @@
   text-align: center;
 }
 
-
 @media screen and (max-width: 348px) {
   #header {
     margin-left: 10px;
@@ -37,10 +36,12 @@
   }
 }
 
+
 #Venues {
   text-align: left;
   margin-top: 25px;
 }
+
 
 #Venues-List {
   display: block;
@@ -51,12 +52,13 @@
   text-align: left;
   list-style: none;
 }
+
+
 #Venues-List button {
   border: none;
   padding: 15px 50px;
   display: inline-block;
 }
-
 
 @media (max-width: 550px) {
   #Venues-List { width: 80%; }
