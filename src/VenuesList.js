@@ -14,9 +14,9 @@ class VenuesList extends Component {
         return (
           <div id="Venues" aria-label="Venues">
               {myVenues.map(myVenue => (
-                <button tabIndex="0" id={myVenue.id} key={myVenue.id}>
-                    <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
-                </button>
+                  <button tabIndex="0" id={myVenue.id} key={myVenue.id}>
+                  <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
+                  </button>
               ))}
             <p><i>Data fetched from Foursquare</i></p>
           </div>

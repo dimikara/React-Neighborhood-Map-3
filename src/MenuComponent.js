@@ -8,7 +8,7 @@ class MenuComponent extends Component {
 
   render () {
     return (
-      <Menu width={ '30%' } isOpen noOverlay >
+      <Menu width={ '25%' } isOpen noOverlay >
         <div>
             <VenuesList />
         </div>

@@ -153,7 +153,7 @@ class App extends Component {
         
         <div id="container" aria-label="Menu-Container">
           <MenuComponent 
-          venues={ this.venues }
+          venues={ this.state.venues }
           />
         </div>
 

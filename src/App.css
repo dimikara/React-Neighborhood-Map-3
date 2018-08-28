@@ -29,13 +29,6 @@
   text-align: center;
 }
 
-@media screen and (max-width: 348px) {
-  #header {
-    margin-left: 10px;
-    padding-left: 10px;
-  }
-}
-
 
 #Venues {
   text-align: left;
@@ -50,7 +43,6 @@
   margin-top: 25px;
   width: 100%;
   text-align: left;
-  list-style: none;
 }
 
 
@@ -60,8 +52,22 @@
   display: inline-block;
 }
 
+
+@media screen and (max-width: 348px) {
+  #header {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+}
+
+
 @media (max-width: 550px) {
-  #Venues-List { width: 80%; }
+  #Venues-List { width: 100%; }
+  
+  #Venues li {
+    list-style: none;
+  }  
+ 
   #Venues-List button { 
     padding: 5px 0px;
     margin-left: 0;
