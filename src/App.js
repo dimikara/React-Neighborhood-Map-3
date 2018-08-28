@@ -110,6 +110,7 @@ class App extends Component {
         title: myVenue.venue.name
       })
       
+      this.marker = marker
       // this.markers.push(marker)
       
       /* 
@@ -145,15 +146,13 @@ class App extends Component {
   )
   }
 
-  /*
   handleClick = () => {
       document.querySelector('.bm-item-list').addEventListener('click', function (event) {
-        if (event.target && event.target.nodeName === "li") {
-          openMarker()
+        if (event.target.id === this.myVenue.id) {
+          //openMarker()
         }
       })
     }
-  */
 
   render() {
     if (this.state.hasError) {
@@ -174,11 +173,9 @@ class App extends Component {
         <div id="container" aria-label="Menu Container">
           <MenuComponent 
           venues={ this.state.venues }
-          getVenues={this.getVenues}
-          //query={this.state.query}
-          //showingLocations={showingLocations}
-          //updateQuery={this.updateQuery}
-          markerClicked={this.onMarkerClick}
+          getVenues={ this.getVenues }
+          //query={ this.state.query }
+          //markerClicked={ this.onMarkerClick }
           />
         </div>
 
