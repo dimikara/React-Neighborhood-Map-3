@@ -37,6 +37,10 @@
   }
 }
 
+#Venues {
+  text-align: left;
+  margin-top: 25px;
+}
 
 #Venues-List {
   display: block;
@@ -45,10 +49,21 @@
   margin-top: 25px;
   width: 100%;
   text-align: left;
-/*  overflow: auto;*/
+  list-style: none;
+}
+#Venues-List button {
+  border: none;
+  padding: 15px 50px;
+  display: inline-block;
 }
 
 
 @media (max-width: 550px) {
   #Venues-List { width: 80%; }
+  #Venues-List button { 
+    padding: 5px 0px;
+    margin-left: 0;
+    font-size: 1.05em;
+    text-align: left;
+  }
 }
