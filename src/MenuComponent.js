@@ -13,12 +13,6 @@ const myVenues = [
 */
 class MenuComponent extends Component {
 
-  /*state = {
-    venue: this.props.venue,
-    activeMarker: this.props.test
-  };
-*/
-
   /* 
    * openMarker function: is called with the onClick event
    * when a list item is clicked   
@@ -37,7 +31,7 @@ class MenuComponent extends Component {
   render () {
     return (
       <Menu width={ '25%' } isOpen noOverlay >
-        <div> 
+        <div className="listOfVenues" aria-label="List of Venues"> 
         {this.props.venues.map(myVenue => (
             <li
               onClick={() => {

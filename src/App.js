@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
 import MenuComponent from './MenuComponent';
 import ErrorBoundary from './ErrorBoundary';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import escapeRegExp from 'escape-string-regexp';
 import Header from './Header';
 
 
@@ -15,17 +16,14 @@ class App extends Component {
       venues: [],
       markers: [],
       showVenues: [],
-      query: ''
+      query: '',
+      notVisibleMarkers: []
   }}
 
   componentDidMount() {
     this.getVenues()
   }
-/*
-  newQuery = query => {
-    this.setState({ query })
-  }
-*/
+  
   
   
   /* 
@@ -64,7 +62,8 @@ class App extends Component {
     * the venues array is empty until the response is fetched and the map method 
     * to show the markers on map cannot work. The renderMap() MUST be called 
     * AFTER getting the response, NOT before => This is CRUCIAL. 
-    */ 
+    */
+
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
       this.setState({
@@ -91,7 +90,7 @@ class App extends Component {
       zoom: 14
     })
 
-    // Create an InfoWindow with max width 120px
+    // Create an InfoWindow with max width 180px
     const infowindow = new window.google.maps.InfoWindow({ 
       maxWidth: 180
     })
@@ -153,13 +152,41 @@ class App extends Component {
   )
   }
 
-  filteredVenues = (updatedVenues) => {
-    this.setState({venues: updatedVenues})
-}
+  /*
+   * Handling the query update i.e. when the user uses the filter option 
+  */
+  updateQuery = query => {
+    this.setState({ query });
+    this.state.markers.map(marker => marker.setVisible(true));
+    let filterVenues;
+    let notVisibleMarkers;
+
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), "i");
+      filterVenues = this.state.venues.filter(myVenue =>
+        match.test(myVenue.venue.name)
+      )
+      this.setState({ venues: filterVenues });
+      notVisibleMarkers = this.state.markers.filter(marker =>
+        filterVenues.every(myVenue => myVenue.venue.name !== marker.title)
+      )
+
+      /* 
+       * Hiding the markers for venues not included in the filtered venues
+      */
+      notVisibleMarkers.forEach(marker => marker.setVisible(false));
+
+      this.setState({ notVisibleMarkers });
+    } else {
+      this.setState({ venues: this.state.showVenues });
+      this.state.markers.forEach(marker => marker.setVisible(true));
+    }
+  }
+
 
   render() {
     if (this.state.hasError) {
-      return <div>Sorry, something went wrong!</div>
+      return <div id="Error-message" aria-label="Error message">Sorry, something went wrong!</div>
     } else {
       return (
       <main>
@@ -174,6 +201,11 @@ class App extends Component {
             venues={ this.state.showVenues } 
             markers={ this.state.markers } 
             filteredVenues={ this.filteredVenues }
+            //locations={this.state.locations}
+	      	query={this.state.query}
+          clearQuery={this.clearQuery}	      	
+	      	updateQuery={b => this.updateQuery(b)}
+	      	clickLocation={this.clickLocation}
           />
         </div>
         

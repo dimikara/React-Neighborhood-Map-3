@@ -38,7 +38,7 @@ In the repository folder:
 ```
 npm install axios --save
 npm install react-burger-menu --save
-npm install --save escape-string-regexp
+npm install escape-string-regexp --save
 ```
 * start the development server with 
 ```
