@@ -19,6 +19,10 @@ class MenuComponent extends Component {
   };
 */
 
+  /* 
+   * openMarker function: is called with the onClick event
+   * when a list item is clicked   
+  */
   // eslint-disable-next-line
   openMarker = locationName => {
     // eslint-disable-next-line
