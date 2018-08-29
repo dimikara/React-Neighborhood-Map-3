@@ -37,9 +37,8 @@ In the repository folder:
 * install project dependencies with 
 ```
 npm install axios --save
-```
-```
 npm install react-burger-menu --save
+npm install --save escape-string-regexp
 ```
 * start the development server with 
 ```
@@ -85,7 +84,7 @@ You can refer [to the React documentation](https://reactjs.org/docs/react-dom.ht
 * The project setup also uses [Webpack](https://webpack.js.org/) for handling all assets, as Webpack offers a custom way of “extending” the concept of `import` beyond JavaScript.
 * [axios](https://github.com/axios/axios), a promise based HTTP client for the browser and node.js. I used it instead of Fetch API.
 * [react-burger-menu](http://negomi.github.io/react-burger-menu/), an off-canvas sidebar React component with a collection of effects and styles using CSS transitions and SVG path animations. I used it to create the off-canvas sidebar.
-* []()
+* [Escape RegExp](https://www.npmjs.com/package/escape-string-regexp) special characters.
 
 
 ## APIs used
