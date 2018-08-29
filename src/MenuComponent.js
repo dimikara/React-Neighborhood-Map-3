@@ -18,7 +18,10 @@ class MenuComponent extends Component {
     activeMarker: this.props.test
   };
 */
+
+  // eslint-disable-next-line
   openMarker = locationName => {
+    // eslint-disable-next-line
     this.props.markers.map(marker => {
       if (marker.title === locationName) {
         window.google.maps.event.trigger(marker, "click");
