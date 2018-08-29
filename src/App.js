@@ -8,17 +8,45 @@ import Header from './Header';
 
 
 class App extends Component {
-
-  state = {
-    venues: [],
-    marker: {},
-    markers: [],
-    //selectedMarker: false
-  }
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      venues: [],
+      markers: [],
+      query: '',
+      activeMarker: {}
+  }}
 
   componentDidMount() {
     this.getVenues()
   }
+
+  /*
+  clickLocation = event => {
+  	this.setState({
+  		query: event
+  	})
+  	for (const venue of this.state.venues) {
+  		if (venue.title === event.target) {
+  			this.setState({
+  				venueDetails: venue
+  			})
+  		}
+  	}
+  }
+  
+  noQuery = () => {
+		this.state({
+			query: ''
+		})
+	}
+
+  newQuery = query => {
+  	this.setState({
+  		query: query
+  	})
+  }*/
 
 
   /* 
@@ -112,9 +140,7 @@ class App extends Component {
         })
       
         this.state.markers.push(marker)
-      
-      //this.marker = marker
-    
+         
       
       /* 
       * Make a marker bounce. The function is called when the marker is clicked.
@@ -136,7 +162,6 @@ class App extends Component {
         
       // Open an InfoWindow upon clicking on its marker
         infowindow.open(map, marker)
-        //selectedMarker = true
       }
 
 
@@ -144,18 +169,11 @@ class App extends Component {
       marker.addListener('click', function() {
         openMarker()
         })
-
+      this.state.activeMarker
     }
   )
   }
 
-  markerClicked = () => {
-      document.querySelector('.bm-item-list').addEventListener('click', function (event) {
-        if (event.target.id === this.myVenue.id) {
-          //openMarker()
-        }
-      })
-    }
 
   render() {
     if (this.state.hasError) {
@@ -177,10 +195,11 @@ class App extends Component {
           <MenuComponent 
           venues={ this.state.venues }
           getVenues={ this.getVenues }
-          onClick={() => this.markerClicked()}
-          markers={this.state.markers}
-          //query={ this.state.query }
-          //markerClicked={ this.onMarkerClick }
+          //noQuery={ this.noQuery }	      	
+	      	//newQuery={ b => this.newQuery(b) }
+	      	activeMarker={ this.activeMarker }
+          markers={ this.state.markers }
+          query ={ this.state.query }
           />
         </div>
 

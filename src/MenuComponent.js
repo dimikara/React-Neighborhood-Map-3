@@ -12,18 +12,23 @@ const myVenues = [
 
 class MenuComponent extends Component {
 
+  state = {
+    venue: this.props.venue,
+    activeMarker: this.props.activeMarker
+  }
+
+  
   render () {
     return (
       <Menu width={ '25%' } isOpen noOverlay >
         <div>
-              {myVenues.map(myVenue => (
-                  <li aria-label={myVenue.name} tabIndex="0" id={myVenue.id} key={myVenue.id}>
-                  <b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
-                  window.google.maps.event.trigger(marker, 'click', openInfowindow)
-                  </li>
+          {myVenues.map(myVenue => (
+              <li onClick={this.state.activeMarker} aria-label={myVenue.name} tabIndex="0" id={myVenue.id} key={myVenue.id}>
+              <br></br><b>{myVenue.name}</b><br></br> <i>{myVenue.address}</i>
+              </li>
               ))}
-            <p><i>Data fetched from Foursquare</i></p>
-          </div>
+          <p><i>Data fetched from Foursquare</i></p>
+        </div>
       </Menu>
     );
   }

@@ -6,7 +6,8 @@ class SearchBar extends Component {
       return (
         <div className="locationsFilter" role="application">
           <input 
-          type="text" 
+          type="text"
+          id="query-Filter"
           placeholder="Search..."
           aria-label="Locations filter"
           //value={this.props}
