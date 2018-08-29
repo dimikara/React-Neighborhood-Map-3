@@ -14,40 +14,20 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
+      showVenues: [],
       query: ''
   }}
 
   componentDidMount() {
     this.getVenues()
   }
-
-  /*
-  clickLocation = event => {
-  	this.setState({
-  		query: event
-  	})
-  	for (const venue of this.state.venues) {
-  		if (venue.title === event.target) {
-  			this.setState({
-  				venueDetails: venue
-  			})
-  		}
-  	}
-  }
-  
-  noQuery = () => {
-		this.state({
-			query: ''
-		})
-	}
-
+/*
   newQuery = query => {
-  	this.setState({
-  		query: query
-  	})
-  }*/
-
-
+    this.setState({ query })
+  }
+*/
+  
+  
   /* 
   * renderMap does two things: 
   * - loads the script
@@ -88,7 +68,8 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
       this.setState({
-        venues: response.data.response.groups[0].items
+        venues: response.data.response.groups[0].items,
+        showVenues: response.data.response.groups[0].items
       }, this.renderMap())
     })
     .catch(error => {
@@ -172,6 +153,9 @@ class App extends Component {
   )
   }
 
+  filteredVenues = (updatedVenues) => {
+    this.setState({venues: updatedVenues})
+}
 
   render() {
     if (this.state.hasError) {
@@ -186,15 +170,17 @@ class App extends Component {
         </div>
 
         <div id="SearchBar" aria-label="Search Bar">
-          <SearchBar />
+          <SearchBar
+            venues={ this.state.showVenues } 
+            markers={ this.state.markers } 
+            filteredVenues={ this.filteredVenues }
+          />
         </div>
         
         <div id="container" aria-label="Menu Container">
           <MenuComponent 
           venues={ this.state.venues }
-          getVenues={ this.getVenues }
           markers={ this.state.markers }
-          query ={ this.state.query }
           />
         </div>
 
