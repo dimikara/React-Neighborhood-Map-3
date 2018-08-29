@@ -15,7 +15,6 @@ class App extends Component {
       venues: [],
       markers: [],
       query: ''
-      //activeMarker: {}
   }}
 
   componentDidMount() {
@@ -169,8 +168,6 @@ class App extends Component {
       marker.addListener('click', function() {
         openMarker()
         })
-      // eslint-disable-next-line
-      this.state.activeMarker
     }
   )
   }
@@ -196,9 +193,6 @@ class App extends Component {
           <MenuComponent 
           venues={ this.state.venues }
           getVenues={ this.getVenues }
-          //noQuery={ this.noQuery }	      	
-	      	//newQuery={ b => this.newQuery(b) }
-	      	activeMarker={ this.activeMarker }
           markers={ this.state.markers }
           query ={ this.state.query }
           />
