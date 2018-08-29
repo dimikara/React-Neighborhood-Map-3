@@ -14,8 +14,8 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
-      query: '',
-      activeMarker: {}
+      query: ''
+      //activeMarker: {}
   }}
 
   componentDidMount() {
@@ -169,6 +169,7 @@ class App extends Component {
       marker.addListener('click', function() {
         openMarker()
         })
+      // eslint-disable-next-line
       this.state.activeMarker
     }
   )
