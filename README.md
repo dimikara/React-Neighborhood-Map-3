@@ -11,7 +11,8 @@
 * [Dependencies](#dependencies-&-tools-used)
 * [APIs Used](#apis-used)
 * [Credits & Helpful Links](#credits-&-helpful-links)
-* [Screenshots](#screenshots)
+* [Screenshot](#screenshot)
+* [Next Steps](#next-steps)
 
 
 ## Overview
@@ -111,7 +112,7 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 ![Screenshot](./src/media/Screenshot10.PNG "Screenshot of the App")
 
 
-## Future Amendments
+## Next Steps
 
 * Deploying the project live in GitHub Pages.
 * Improving the styling & general design to make the app more appealing. Add more color to the menu & design.
