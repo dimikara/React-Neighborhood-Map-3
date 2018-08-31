@@ -108,7 +108,7 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 
 ## Screenshot
 
-![Screenshot9](./src/media/Screenshot9.PNG "Screenshot of the App")
+![Screenshot](./src/media/Screenshot10.PNG "Screenshot of the App")
 
 
 ## Future Amendments
