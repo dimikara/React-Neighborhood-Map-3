@@ -106,17 +106,15 @@ I chose the [Get Venue Recommendations](https://developer.foursquare.com/docs/ap
 * Favicon generated via [Favicon & App Icon Generator](https://www.favicon-generator.org/).
 
 
-## Screenshots
+## Screenshot
 
--->TO BE ADDED
-* Screensot 1: ![Screenshot1](./src/Media/Screenshot1.PNG "Screenshot")
-* Screenshot 2: ![Screenshot2](./src/Media/Screenshot2.PNG "Screenshot")
+![Screenshot9](./src/media/Screenshot9.PNG "Screenshot of the App")
 
 
 ## Future Amendments
 
 * Deploying the project live in GitHub Pages.
-* Improving the styling & general design to make the app more appealing.
+* Improving the styling & general design to make the app more appealing. Add more color to the menu & design.
 * Implementing a better way to handle the list of sights.
 * Use more APIs to fetch more info about the sights. For example, Wikipedia, or maybe photos by Flickr.
 * Make the list of sights more focused, for example, getting only sights of archaeological or other interest.
