@@ -33,11 +33,8 @@ class MenuComponent extends Component {
       <Menu width={ '25%' } isOpen noOverlay >
         <div className="listOfVenues" aria-label="List of Venues"> 
         {this.props.venues.map(myVenue => (
-            <li aria-label="Venue item"
+            <li role="menuitem"
               onClick={() => {
-                this.openMarker(myVenue.venue.name);
-              }}
-              onKeyPress={() => {
                 this.openMarker(myVenue.venue.name);
               }}
               aria-label={myVenue.venue.name}
