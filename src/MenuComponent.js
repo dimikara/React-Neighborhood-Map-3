@@ -35,7 +35,9 @@ class MenuComponent extends Component {
         {this.props.venues.map(myVenue => (
             <li
               onClick={() => {
-                //console.log(this.props.venues);
+                this.openMarker(myVenue.venue.name);
+              }}
+              onKeyPress={() => {
                 this.openMarker(myVenue.venue.name);
               }}
               aria-label={myVenue.venue.name}
