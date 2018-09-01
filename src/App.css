@@ -46,6 +46,12 @@
 }
 
 
+.listOfVenues {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+
 .listOfVenues li {
 cursor: pointer;
 }
