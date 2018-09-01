@@ -22,10 +22,10 @@ class MenuComponent extends Component {
     // eslint-disable-next-line
     this.props.markers.map(marker => {
       if (marker.title === locationName) {
-        window.google.maps.event.trigger(marker, "click");
+        window.google.maps.event.trigger(marker, "click")
       }
-    });
-  };
+    })
+  }
 
   
   render () {

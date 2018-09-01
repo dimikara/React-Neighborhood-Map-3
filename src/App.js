@@ -156,17 +156,17 @@ class App extends Component {
    * Handling the query update i.e. when the user uses the filter option 
   */
   updateQuery = query => {
-    this.setState({ query });
-    this.state.markers.map(marker => marker.setVisible(true));
-    let filterVenues;
-    let notVisibleMarkers;
+    this.setState({ query })
+    this.state.markers.map(marker => marker.setVisible(true))
+    let filterVenues
+    let notVisibleMarkers
 
     if (query) {
-      const match = new RegExp(escapeRegExp(query), "i");
+      const match = new RegExp(escapeRegExp(query), "i")
       filterVenues = this.state.venues.filter(myVenue =>
         match.test(myVenue.venue.name)
       )
-      this.setState({ venues: filterVenues });
+      this.setState({ venues: filterVenues })
       notVisibleMarkers = this.state.markers.filter(marker =>
         filterVenues.every(myVenue => myVenue.venue.name !== marker.title)
       )
@@ -174,12 +174,12 @@ class App extends Component {
       /* 
        * Hiding the markers for venues not included in the filtered venues
       */
-      notVisibleMarkers.forEach(marker => marker.setVisible(false));
+      notVisibleMarkers.forEach(marker => marker.setVisible(false))
 
-      this.setState({ notVisibleMarkers });
+      this.setState({ notVisibleMarkers })
     } else {
-      this.setState({ venues: this.state.showVenues });
-      this.state.markers.forEach(marker => marker.setVisible(true));
+      this.setState({ venues: this.state.showVenues })
+      this.state.markers.forEach(marker => marker.setVisible(true))
     }
   }
 
@@ -201,18 +201,17 @@ class App extends Component {
             venues={ this.state.showVenues } 
             markers={ this.state.markers } 
             filteredVenues={ this.filteredVenues }
-            //locations={this.state.locations}
-	      	query={this.state.query}
-          clearQuery={this.clearQuery}	      	
-	      	updateQuery={b => this.updateQuery(b)}
-	      	clickLocation={this.clickLocation}
+  	      	query={this.state.query}
+            clearQuery={this.clearQuery}	      	
+	        	updateQuery={b => this.updateQuery(b)}
+	        	clickLocation={this.clickLocation}
           />
         </div>
         
         <div id="container" aria-label="Menu Container">
           <MenuComponent 
-          venues={ this.state.venues }
-          markers={ this.state.markers }
+            venues={ this.state.venues }
+            markers={ this.state.markers }
           />
         </div>
 
