@@ -9,7 +9,7 @@
     "react": "^16.13.1",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.13.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
