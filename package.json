@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
-    "escape-string-regexp": "^4.0.0",
+    "escape-string-regexp": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
