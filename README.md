@@ -1,3 +1,6 @@
+[![Depfu](https://badges.depfu.com/badges/a81530dbef785412f56cc5a3539d823d/status.svg)](https://depfu.com)
+[![Depfu](https://badges.depfu.com/badges/a81530dbef785412f56cc5a3539d823d/overview.svg)](https://depfu.com/github/dimikara/React-Neighborhood-Map-3?project_id=11515)
+
 # Neighborhood Map Project
 
 
