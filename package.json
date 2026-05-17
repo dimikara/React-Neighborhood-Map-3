@@ -6,9 +6,9 @@
     "axios": "^1.15.2",
     "escape-string-regexp": "^5.0.0",
     "prop-types": "^15.8.1",
-    "react": "^19.2.5",
+    "react": "^19.2.6",
     "react-burger-menu": "^3.1.0",
-    "react-dom": "^19.2.5",
+    "react-dom": "^19.2.6",
     "react-scripts": "5.0.1"
   },
   "scripts": {
